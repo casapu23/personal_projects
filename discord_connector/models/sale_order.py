@@ -13,7 +13,7 @@ class SaleOrder(models.Model):
     def action_confirm(self):
         link = self.env['ir.config_parameter'].sudo().get_param('discord.sales_channel')
         
-        response = requests.post(link, json={"content": f"✅ Pedido confirmado: {self.name}"},)
+        response = requests.post(link, json={"content": f"Pedido confirmado: {self.name}"},)
         
         if response.status_code == 204:
             _logger.info("Mensaje enviado con éxito")
