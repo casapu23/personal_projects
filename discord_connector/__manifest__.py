@@ -8,6 +8,6 @@
     "category": "",
     "depends": ["sale_management", "stock", "account"],
     "data": [
-
+        "data/ir_cron_account_move.xml",
     ],
 }

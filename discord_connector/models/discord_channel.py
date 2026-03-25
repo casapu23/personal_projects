@@ -8,8 +8,10 @@ class DiscordChannel(models.Model):
         
         discord_sales_channel_url = self.env['ir.config_parameter'].sudo().get_param('discord.sales_channel')
         
+        discord_account_channel_url = self.env['ir.config_parameter'].sudo().get_param('discord.account_channel')
         
-        discord_dictionary_links.update("sales_channel", discord_sales_channel_url)
+        
+        discord_dictionary_links.update("sales_channel", discord_sales_channel_url, "account_channel", discord_account_channel_url)
         
         return discord_dictionary_links
         

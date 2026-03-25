@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_account_move_expired_invoices" model="ir.cron">
+        <field name="name">Expired invoices</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="code">model.action_cron_expired_invoices()</field>
+        <field name="state">code</field>
+    </record>
+</odoo>
