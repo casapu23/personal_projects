@@ -6,17 +6,16 @@ _logger = logging.getLogger(__name__)
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
-    
         
-    channel_id = fields.Many2one('discord.channel')
-    
     def action_confirm(self):
-        link = self.env['ir.config_parameter'].sudo().get_param('discord.sales_channel')
+        # SI CONFIRMO SIN UN LINK, DA ERROR: requests.exceptions.MissingSchema: Invalid URL 'False': No scheme supplied. Perhaps you meant https://False?
+        link = self.env['ir.config_parameter'].sudo().get_param('discord_connector.sales_channel_url')
+        _logger.info(f"Link for the sales discord channel {link}")
         
-        response = requests.post(link, json={"content": f"Pedido confirmado: {self.name}"},)
+        response = requests.post(link, json={"content": f"The order {self.name} has been confirmed, total amount: {self.amount_total}{self.currency_id.symbol}"})
         
         if response.status_code == 204:
-            _logger.info("Mensaje enviado con éxito")
+            _logger.info(f"Message sent with the order: {self.name}")
         else:
             _logger.info(f"Error al enviar: {response.status_code}, {response.text}")
         

@@ -10,5 +10,6 @@
     "data": [
         "data/ir_cron_account_move.xml",
         "data/ir_cron_stock_warehouse_orderpoint.xml",
+        "views/res_config_settings_views.xml",
     ],
 }
