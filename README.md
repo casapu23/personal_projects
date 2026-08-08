@@ -1,7 +1,7 @@
 # Odoo Portfolio
 
 This is my personal portfolio, sharing my ability and knowledge with everyone who wants!
-
+All the modules included in this portfolio are designed for **Odoo Enterprise**.
 ---
 
 ## About me
@@ -26,6 +26,10 @@ It extends the `res.partner` model and integrates a validation in `sale.order.li
 ### [Sale Cancellation Reason](./sale_cancel_reason/)
 A module that enforces a **mandatory text explanation** when cancelling a Quotation or Sales Order.
 It intercepts the standard cancel button, opens a Wizard for user input, and permanently saves the reason in the order history for audit purposes.
+
+### [Discord Connector](./discord_connector/)
+A module that connects Odoo with Discord to send real-time notifications for key business events.
+It supports alerts for confirmed sales, low stock from reordering rules, and expired invoices, with webhook-based messaging and email fallback when the configuration is missing.
 
 ### [Odoo Scripts](./odoo_scripts/)
 Collection of small, practical scripts for Odoo database and admin tasks.
