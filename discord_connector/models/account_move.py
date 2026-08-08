@@ -19,11 +19,11 @@ class AccountMove(models.Model):
     @api.model
     def action_cron_expired_invoices(self):
         
-        if link == False or None:
+        link = self.env['ir.config_parameter'].sudo().get_param('discord_connector.accounting_channel_url')
+        
+        if not link:
             self.action_send_mail()
-        else:
-            link = self.env['ir.config_parameter'].sudo().get_param('discord_connector.accounting_channel_url')
-            
+        else:            
             _logger.info(f"Link for the accounting discord channel {link}")
             
             expired_invoices = self.env['account.move'].search([
@@ -37,9 +37,9 @@ class AccountMove(models.Model):
             
             for invoices in expired_invoices:
                 response = requests.post(link, json={"content": f"Expired invoice: {invoices.name} due on {invoices.invoice_date_due}."})
-                invoices.invoice_already_sent_discord = True
         
                 if response.status_code == 204:
+                    invoices.invoice_already_sent_discord = True
                     _logger.info(f"Message sent with the invoice: {invoices.name}")
                 else:
                     _logger.info(f"Sending error: {response.status_code}, {response.text}")

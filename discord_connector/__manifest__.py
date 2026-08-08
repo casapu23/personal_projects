@@ -6,7 +6,7 @@
     "license": "AGPL-3",
     "website": "https://github.com/casapu23/personal_projects",
     "category": "",
-    "depends": ["sale_management", "stock", "account"],
+    "depends": ["sale_management", "stock", "account", "base_setup"],
     "data": [
         "data/ir_cron_account_move.xml",
         "data/ir_cron_stock_warehouse_orderpoint.xml",
