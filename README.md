@@ -31,6 +31,10 @@ It intercepts the standard cancel button, opens a Wizard for user input, and per
 A module that connects Odoo with Discord to send real-time notifications for key business events.
 It supports alerts for confirmed sales, low stock from reordering rules, and expired invoices, with webhook-based messaging and email fallback when the configuration is missing.
 
+### [Working Schedule Periods](./working_schedule_periods/)
+A module that extends Odoo to support seasonal working schedules, such as winter and summer hours.
+It avoids repetitive manual calendar changes and includes dedicated permissions and multi-company visibility rules.
+
 ### [Odoo Scripts](./odoo_scripts/)
 Collection of small, practical scripts for Odoo database and admin tasks.
 Includes utilities and one-off SQL scripts (example: `adapt_currency_decimal`). Each script has its own README with usage, safety notes, and examples.

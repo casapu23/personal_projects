@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_resource_calendar_period"
+        action="resource_calendar_period_action"
+        parent="hr.menu_config_employee"
+        groups="working_schedule_periods.working_schedule_periods_group_user"
+        sequence="8"/>
+</odoo>
