@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <record id="resource_calendar_period_view_form" model="ir.ui.view">
+            <field name="model">resource.calendar.period</field>
+            <field name="arch" type="xml">
+                <form string="Working Schedule Period">
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Working schedules periods lines" name="period_lines">
+                            <form>
+                                <group>
+                                    <field name="period_line_ids"/>
+                                </group>
+                            </form>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="resource_calendar_period_action" model="ir.actions.act_window">
+            <field name="name">Resource calendar periods</field>
+            <field name="res_model">resource.calendar.period</field>
+            <field name="view_mode">form</field>
+        </record>
+
+    </data>
+</odoo>

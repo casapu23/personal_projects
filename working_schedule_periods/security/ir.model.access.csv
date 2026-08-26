@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_resource_calendar_period,resource.calendar.period,model_resource_calendar_period,base.group_user,1,1,1,1
+access_resource_calendar_period_line,resource.calendar.period.line,model_resource_calendar_period_line,base.group_user,1,1,1,1

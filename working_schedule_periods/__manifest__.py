@@ -7,6 +7,9 @@
     'category': "Employee",
     'depends': ["hr"],
     'data': [
-
+        'views/resource_calendar_period_views.xml',
+        'views/hr_employee_views.xml',
+        'views/menuitems.xml',
+        'security/ir.model.access.csv',
     ],
 }
