@@ -9,6 +9,8 @@ class ResourceCalendarPeriodLine(models.Model):
     _description = "Working schedules periods lines"
     
     name = fields.Char(string="Working schedule period name")
+    sequence = fields.Integer(default=10)
     start_period = fields.Datetime()
     end_period = fields.Datetime()
-    resource_calendar_id = fields.Many2one('resource.calendar.period')
+    resource_calendar_id = fields.Many2one('resource.calendar')
+    resource_calendar_period_id = fields.Many2one('resource.calendar.period')
