@@ -14,3 +14,5 @@
         'views/menuitems.xml',
     ],
 }
+
+# falta un cron para comprovar los datos de las fechas del periodo de trabajo, así cambiandolo automaticamente
