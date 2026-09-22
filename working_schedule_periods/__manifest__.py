@@ -12,7 +12,6 @@
         'views/resource_calendar_period_views.xml',
         'views/hr_employee_views.xml',
         'views/menuitems.xml',
+        'data/ir_cron.xml',
     ],
 }
-
-# falta un cron para comprovar los datos de las fechas del periodo de trabajo, así cambiandolo automaticamente

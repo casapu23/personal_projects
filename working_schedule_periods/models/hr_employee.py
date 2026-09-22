@@ -5,6 +5,21 @@ class HrEmployee(models.Model):
 
     resource_calendar_period_id = fields.Many2one('resource.calendar.period', groups="working_schedule_periods.working_schedule_periods_group_user")
 
+
+    def _update_employee_working_schedule_period(self):
+        employees = self.env['hr.employee'].search([('resource_calendar_period_id', '!=', False)])
+        now = fields.Datetime.now()
+
+        for employee in employees:
+            period = employee.resource_calendar_period_id
+            if not period:
+                continue
+                
+        for line in period.period_line_ids:
+            if line.start_period <= now and line.end_period >= now:
+                employee.resource_calendar_id = line.resource_calendar_id
+                break
+
     @api.onchange('resource_calendar_period_id')
     def _onchange_resource_calendar_period_id(self):
         for i in self:
@@ -24,3 +39,6 @@ class HrEmployee(models.Model):
             self._onchange_resource_calendar_period_id()
 
         return result
+
+    def _cron_check_employee_working_schedule_period(self):
+        return self._update_employee_working_schedule_period()
